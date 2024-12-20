@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import slackLogo from "../assets/images/slack-logo.png";
 import dockerLogo from "../assets/images/docker-logo.png";
@@ -17,7 +17,7 @@ import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { Logo } from "@/components/Logo";
 import Image from "next/image";
 import { motion } from "framer-motion";
-
+import Link from "next/link";
 
 export const features = [
   "Effortless integration",
@@ -71,7 +71,7 @@ export const logos = [
 export const Features = () => {
   return (
     <section id="features">
-      <div className="container"> 
+      <div className="container">
         <SectionBorder borderTop>
           <SectionContent className="md:px-20 lg:px-40">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
@@ -82,23 +82,22 @@ export const Features = () => {
                 <ul className="mt-12 flex flex-col gap-8">
                   {features.map((feature) => (
                     <li key={feature} className="flex items-center gap-4">
-                      <FontAwesomeIcon icon={faCircleCheck} className="size-6 text-violet-400" />
-                      <span className="text-xl font-medium">
-                        {feature}
-                      </span>
+                      <FontAwesomeIcon
+                        icon={faCircleCheck}
+                        className="size-6 text-violet-400"
+                      />
+                      <span className="text-xl font-medium">{feature}</span>
                     </li>
                   ))}
                 </ul>
-                <Button
-                  className="mt-16"
-                >
-                  Try it now
-                </Button>
+                <Link href={'#projects'}>
+                  <Button className="mt-16">See Projects</Button>
+                </Link>
               </div>
               <div className="flex justify-center">
                 <div className="size-[270px] md:size-[450px] flex flex-shrink-0 relative">
                   <div className="absolute inset-0">
-                    <Orbit className="size-full"/>
+                    <Orbit className="size-full" />
                   </div>
                   <div className="absolute-center">
                     <Orbit className="size-[180px] md:size-[300px]" />
@@ -107,17 +106,18 @@ export const Features = () => {
                     <Orbit className="size-full" />
                   </div>
                   <div className="absolute-center">
-                    <Logo className="size-24"/>
+                    <Logo className="size-24" />
                   </div>
-                  {logos.map(({src, alt, rotate}) => (
+                  {logos.map(({ src, alt, rotate }) => (
                     // Rotación de los logos
-                    <motion.div 
-                      className="absolute inset-0" 
-                      initial= {{
+                    <motion.div
+                      className="absolute inset-0"
+                      initial={{
                         rotate: rotate, // Posición inicial según array
                       }}
                       animate={{
-                        rotate: [       // Rotación en sentido horario
+                        rotate: [
+                          // Rotación en sentido horario
                           rotate,
                           rotate + 45,
                           rotate + 45,
@@ -134,7 +134,7 @@ export const Features = () => {
                           rotate + 315,
                           rotate + 315,
                           rotate + 360,
-                          rotate + 360
+                          rotate + 360,
                         ],
                       }}
                       transition={{
@@ -142,16 +142,18 @@ export const Features = () => {
                         repeat: Infinity,
                       }}
                       key={alt}
-                      >
+                    >
                       {/* Rotación inversa de los logos */}
-                      <motion.div 
-                        className="inline-flex size-10 md:size-14 items-center justify-center border border-[var(--color-border)] rounded-lg absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-0 bg-gray-950" 
+                      <motion.div
+                        className="inline-flex size-10 md:size-14 items-center justify-center border border-[var(--color-border)] rounded-lg absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-0 bg-gray-950"
                         initial={{
                           translate: "-50% -50%", // Se utiliza para centrar el logo en el punto de la órbita, moviéndolo hacia arriba y hacia la izquierda en relación con el contenedor padre
-                          rotate: -rotate,        // Se utiliza para rotar el logo hacia la izquierda en relación con el contenedor padre
+                          rotate: -rotate, // Se utiliza para rotar el logo hacia la izquierda en relación con el contenedor padre
                         }}
-                        animate={{           // Rotación inversa (negativa) al contenedor interno para que los logos parezcan estar 
-                          rotate: [          // en posición fija mientras el contenedor exterior rota.
+                        animate={{
+                          // Rotación inversa (negativa) al contenedor interno para que los logos parezcan estar
+                          rotate: [
+                            // en posición fija mientras el contenedor exterior rota.
                             -rotate,
                             -rotate - 45,
                             -rotate - 45,
@@ -168,7 +170,7 @@ export const Features = () => {
                             -rotate - 315,
                             -rotate - 315,
                             -rotate - 360,
-                            -rotate - 360
+                            -rotate - 360,
                           ],
                         }}
                         transition={{
@@ -176,10 +178,10 @@ export const Features = () => {
                           repeat: Infinity,
                         }}
                       >
-                        <Image 
-                          src={src} 
-                          alt={alt} 
-                          className="size-6 md:size-9" 
+                        <Image
+                          src={src}
+                          alt={alt}
+                          className="size-6 md:size-9"
                         />
                       </motion.div>
                     </motion.div>
@@ -191,7 +193,7 @@ export const Features = () => {
         </SectionBorder>
       </div>
     </section>
-  )
+  );
 };
 
 export default Features;

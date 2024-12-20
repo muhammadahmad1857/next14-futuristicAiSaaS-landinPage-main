@@ -3,6 +3,7 @@
 import robotImg from "@/assets/images/robot.jpg";
 import { Button } from "@/components/Button";
 import Image from "next/image";
+import Link from "next/link";
 import underlineImage from "@/assets/images/underline.svg?url";
 import Loader from "@/assets/images/loader-animated.svg";
 import { Orbit } from "@/components/Orbit";
@@ -117,7 +118,7 @@ export const Hero = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xlfont-semibold text-gray-100 text-center leading-tight">
               Unlock the Future of AI Conversations with{" "}
               <span className="relative">
-                <span>Sphereal</span>
+                <span>Company</span>
                 <span
                   className="absolute w-full left-0 top-full -translate-y-1/2 h-4 linear-gradient"
                   style={{
@@ -131,14 +132,16 @@ export const Hero = () => {
             </h1>
 
             <p className="text-center text-lg md:text-xl mt-8 max-w-3xl mx-auto">
-              Harness the power of AI with Sphereal. Elevate your productivity
+              Harness the power of AI with Company. Elevate your productivity
               and streamline your workflow with our cutting-edge platform.
             </p>
 
             <div className="flex justify-center">
-              <Button variant="secondary" className="mt-10">
-                Start Chatting
-              </Button>
+              <Link href="#projects">
+                <Button variant="secondary" className="mt-10">
+                  See Our Projects
+                </Button>
+              </Link>
             </div>
 
             <div className="relative isolate max-w-5xl mx-auto">
@@ -202,9 +205,7 @@ export const Hero = () => {
                     y: transformedY,
                   }}
                 >
-                  <div>
-                    Can you generate an incredible frontend dev video tutorial ?
-                  </div>
+                  <div>Could you please generate product reviews ?</div>
                   <div className="text-right text-gray-400 text-sm font-semibold">
                     1m ago
                   </div>
@@ -217,8 +218,8 @@ export const Hero = () => {
                     y: transformedY,
                   }}
                 >
-                  <strong>Brainwave:</strong> I create one based on videos from
-                  Frontend Tribe!
+                  <strong>ArtEmotion:</strong> Could you please convert my
+                  emotion to an art?
                   <div className="text-right text-gray-400 text-sm font-semibold">
                     Just now
                   </div>

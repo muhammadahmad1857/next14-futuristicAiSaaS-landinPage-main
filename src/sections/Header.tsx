@@ -4,6 +4,7 @@
 import { Button, ButtonProps } from "@/components/Button";
 import { Logo } from "@/components/Logo";
 import { Orbit } from "@/components/Orbit";
+import Link from "next/link";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -17,22 +18,18 @@ export const navItems = [
     href: "#pricing",
   },
   {
-    name: "Testimonials",
-    href: "#testimonials",
+    name: "Developers",
+    href: "#devs",
   },
 ];
 
 export const loginItems = [
   {
-    buttonVariant: "tertiary",
-    name: "Login",
-    href: "#login",
-  },
-  {
     buttonVariant: "primary",
-    name: "Sign Up",
-    href: "#sign-up",
+    name: "Projects",
+    href: "#projects",
   },
+  
 ] satisfies {
   buttonVariant: ButtonProps["variant"];
   name: string;
@@ -57,7 +54,7 @@ export const Header = () => {
                 }}
                 ></div> */}
               <Logo />
-              <div className="font-extrabold text-2xl">sphereal.ai</div>
+              <div className="font-extrabold text-2xl">Company.ai</div>
             </div>
 
             {/* nav-items */}
@@ -148,7 +145,7 @@ export const Header = () => {
           <div className="container h-full">
             <nav className="flex flex-col items-center gap-4 py-8 h-full justify-center">
               {navItems.map(({ name, href }) => (
-                <a
+                <Link
                   href={href}
                   key={name}
                   className="text-gray-400 uppercase tracking-widest font-bold text-xs h-10"
@@ -162,14 +159,14 @@ export const Header = () => {
                   }}
                 >
                   {name}
-                </a>
+                </Link>
               ))}
               {loginItems.map(({ name, href, buttonVariant }) => (
-                <a href={href} key={name} className="w-full max-w-xs">
+                <Link href={href} key={name} className="w-full max-w-xs">
                   <Button variant={buttonVariant} block>
                     {name}
                   </Button>
-                </a>
+                </Link>
               ))}
             </nav>
           </div>
